@@ -1,10 +1,10 @@
 {
   "tool": "agentcore_diagram_inventory",
-  "generated_at": "2026-03-14T21:14:53.543735+00:00",
+  "generated_at": "2026-03-15T16:36:29.963598+00:00",
   "regions": [
     {
       "region": "us-east-2",
-      "collected_at": "2026-03-14T21:14:53.570082+00:00",
+      "collected_at": "2026-03-15T16:36:29.992174+00:00",
       "resources": {
         "agent_runtimes": {
           "ok": true,
@@ -13,9 +13,9 @@
             {
               "agentRuntimeArn": "arn:aws:bedrock-agentcore:us-east-2:135100771675:runtime/customer_support_agent-XDGSrz7NRI",
               "agentRuntimeId": "customer_support_agent-XDGSrz7NRI",
-              "agentRuntimeVersion": "4",
+              "agentRuntimeVersion": "5",
               "agentRuntimeName": "customer_support_agent",
-              "lastUpdatedAt": "2026-03-13T00:40:15.987112+00:00",
+              "lastUpdatedAt": "2026-03-15T14:14:50.772032+00:00",
               "status": "READY"
             },
             {
@@ -99,13 +99,13 @@
             "items": [
               {
                 "name": "DEFAULT",
-                "liveVersion": "4",
+                "liveVersion": "5",
                 "agentRuntimeEndpointArn": "arn:aws:bedrock-agentcore:us-east-2:135100771675:runtime/customer_support_agent-XDGSrz7NRI/runtime-endpoint/DEFAULT",
                 "agentRuntimeArn": "arn:aws:bedrock-agentcore:us-east-2:135100771675:runtime/customer_support_agent-XDGSrz7NRI",
                 "status": "READY",
                 "id": "DEFAULT",
                 "createdAt": "2026-03-11T02:25:22.921609+00:00",
-                "lastUpdatedAt": "2026-03-13T00:40:46.759505+00:00"
+                "lastUpdatedAt": "2026-03-15T14:15:21.710846+00:00"
               }
             ]
           },

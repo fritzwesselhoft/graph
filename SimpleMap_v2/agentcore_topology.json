@@ -1,0 +1,166 @@
+{
+  "nodes": [
+    {
+      "id": "customersupport-gw-irxbzczbfi",
+      "type": "gateway",
+      "label": "customersupport-gw",
+      "metadata": {
+        "gatewayId": "customersupport-gw-irxbzczbfi",
+        "name": "customersupport-gw",
+        "status": "READY",
+        "description": "Customer Support AgentCore Gateway",
+        "createdAt": "2026-03-11T01:59:49.690203+00:00",
+        "updatedAt": "2026-03-11T02:10:48.343816+00:00",
+        "authorizerType": "CUSTOM_JWT",
+        "protocolType": "MCP"
+      }
+    },
+    {
+      "id": "customer_support_agent-XDGSrz7NRI",
+      "type": "runtime",
+      "label": "customer_support_agent",
+      "metadata": {
+        "agentRuntimeArn": "arn:aws:bedrock-agentcore:us-east-2:135100771675:runtime/customer_support_agent-XDGSrz7NRI",
+        "agentRuntimeId": "customer_support_agent-XDGSrz7NRI",
+        "agentRuntimeVersion": "4",
+        "agentRuntimeName": "customer_support_agent",
+        "lastUpdatedAt": "2026-03-13T00:40:15.987112+00:00",
+        "status": "READY"
+      }
+    },
+    {
+      "id": "HealthcareAppt-2K1Z4lCK10",
+      "type": "runtime",
+      "label": "HealthcareAppt",
+      "metadata": {
+        "agentRuntimeArn": "arn:aws:bedrock-agentcore:us-east-2:135100771675:runtime/HealthcareAppt-2K1Z4lCK10",
+        "agentRuntimeId": "HealthcareAppt-2K1Z4lCK10",
+        "agentRuntimeVersion": "1",
+        "agentRuntimeName": "HealthcareAppt",
+        "description": "https://github.com/awslabs/amazon-bedrock-agentcore-samples/tree/main/02-use-cases/healthcare-appointment-agent",
+        "lastUpdatedAt": "2026-03-13T00:58:46.809603+00:00",
+        "status": "CREATE_FAILED"
+      }
+    },
+    {
+      "id": "CustomerSupportMemory-e1EiFrB62T",
+      "type": "memory",
+      "label": "CustomerSupportMemory-e1EiFrB62T",
+      "metadata": {
+        "arn": "arn:aws:bedrock-agentcore:us-east-2:135100771675:memory/CustomerSupportMemory-e1EiFrB62T",
+        "id": "CustomerSupportMemory-e1EiFrB62T",
+        "status": "ACTIVE",
+        "createdAt": "2026-03-10T21:23:36.966000-04:00",
+        "updatedAt": "2026-03-10T21:23:37.240000-04:00"
+      }
+    },
+    {
+      "id": "customersupport_pe-5iw0xn29kt",
+      "type": "policy_engine",
+      "label": "customersupport_pe",
+      "metadata": {
+        "policyEngineId": "customersupport_pe-5iw0xn29kt",
+        "name": "customersupport_pe",
+        "description": "Policy engine for customer support gateway",
+        "createdAt": "2026-03-11T02:01:06.487032+00:00",
+        "updatedAt": "2026-03-11T02:01:07.191654+00:00",
+        "policyEngineArn": "arn:aws:bedrock-agentcore:us-east-2:135100771675:policy-engine/customersupport_pe-5iw0xn29kt",
+        "status": "ACTIVE",
+        "statusReasons": []
+      }
+    },
+    {
+      "id": "target:2M4Q0D8KKB",
+      "type": "gateway_target",
+      "label": "LambdaUsingSDK",
+      "metadata": {
+        "targetId": "2M4Q0D8KKB",
+        "name": "LambdaUsingSDK",
+        "status": "READY",
+        "description": "Lambda Target using SDK",
+        "createdAt": "2026-03-11T02:00:03.431917+00:00",
+        "updatedAt": "2026-03-11T02:00:03.901849+00:00"
+      }
+    },
+    {
+      "id": "lambda:arn:aws:lambda:us-east-2:135100771675:function:CustomerSupportStackInfra-CustomerSupportLambda-UHVKBCDeEYTi",
+      "type": "lambda",
+      "label": "CustomerSupportStackInfra-CustomerSupportLambda-UHVKBCDeEYTi",
+      "metadata": {
+        "lambdaArn": "arn:aws:lambda:us-east-2:135100771675:function:CustomerSupportStackInfra-CustomerSupportLambda-UHVKBCDeEYTi",
+        "gatewayId": "customersupport-gw-irxbzczbfi",
+        "targetId": "2M4Q0D8KKB",
+        "toolSchema": {
+          "inlinePayload": [
+            {
+              "name": "check_warranty_status",
+              "description": "Check the warranty status of a product using its serial number and optionally verify via email",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "customer_email": {
+                    "type": "string"
+                  },
+                  "serial_number": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "serial_number"
+                ]
+              }
+            },
+            {
+              "name": "web_search",
+              "description": "Search the web for updated information using DuckDuckGo",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "keywords": {
+                    "type": "string",
+                    "description": "The search query keywords"
+                  },
+                  "max_results": {
+                    "type": "integer",
+                    "description": "The maximum number of results to return"
+                  },
+                  "region": {
+                    "type": "string",
+                    "description": "The search region (e.g., us-en, uk-en, ru-ru)"
+                  }
+                },
+                "required": [
+                  "keywords"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "customersupport-gw-irxbzczbfi",
+      "target": "target:2M4Q0D8KKB",
+      "relation": "invokes",
+      "metadata": {}
+    },
+    {
+      "source": "target:2M4Q0D8KKB",
+      "target": "lambda:arn:aws:lambda:us-east-2:135100771675:function:CustomerSupportStackInfra-CustomerSupportLambda-UHVKBCDeEYTi",
+      "relation": "executes",
+      "metadata": {}
+    },
+    {
+      "source": "customersupport_pe-5iw0xn29kt",
+      "target": "customersupport-gw-irxbzczbfi",
+      "relation": "applies_to",
+      "metadata": {
+        "policyId": "allow_policy-ypfjs2x0i9",
+        "policyName": "allow_policy",
+        "gatewayArn": "arn:aws:bedrock-agentcore:us-east-2:135100771675:gateway/customersupport-gw-irxbzczbfi"
+      }
+    }
+  ]
+}
