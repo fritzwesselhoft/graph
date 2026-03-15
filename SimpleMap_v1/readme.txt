@@ -34,6 +34,7 @@ python3 map_agentcore.py
 (.venv) fritzwesselhoft@fritzs-MBP SimpleMap_v1 % 
 
 Pre-Requirements:
+        Update Script to point to your agentCoreCollector.py output file, I'll add --input flag later
         Diagrams: pip install diagrams
         graphviz: brew install graphviz (on Mac)
 
