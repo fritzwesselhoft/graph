@@ -22,9 +22,9 @@
       "metadata": {
         "agentRuntimeArn": "arn:aws:bedrock-agentcore:us-east-2:135100771675:runtime/customer_support_agent-XDGSrz7NRI",
         "agentRuntimeId": "customer_support_agent-XDGSrz7NRI",
-        "agentRuntimeVersion": "4",
+        "agentRuntimeVersion": "5",
         "agentRuntimeName": "customer_support_agent",
-        "lastUpdatedAt": "2026-03-13T00:40:15.987112+00:00",
+        "lastUpdatedAt": "2026-03-15T14:14:50.772032+00:00",
         "status": "READY"
       }
     },

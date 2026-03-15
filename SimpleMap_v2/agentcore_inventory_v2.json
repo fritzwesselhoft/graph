@@ -1,7 +1,7 @@
 {
   "tool": "collect_agentcore.py",
   "schema_version": "2.1",
-  "generated_at": "2026-03-15T13:51:16.638703+00:00",
+  "generated_at": "2026-03-15T17:01:38.254649+00:00",
   "regions_requested": [
     "us-east-2"
   ],
@@ -10,7 +10,7 @@
   "regions": [
     {
       "region": "us-east-2",
-      "collected_at": "2026-03-15T13:51:17.968879+00:00",
+      "collected_at": "2026-03-15T17:01:39.603896+00:00",
       "resources": {
         "agent_runtimes": {
           "ok": true,
@@ -19,9 +19,9 @@
             {
               "agentRuntimeArn": "arn:aws:bedrock-agentcore:us-east-2:135100771675:runtime/customer_support_agent-XDGSrz7NRI",
               "agentRuntimeId": "customer_support_agent-XDGSrz7NRI",
-              "agentRuntimeVersion": "4",
+              "agentRuntimeVersion": "5",
               "agentRuntimeName": "customer_support_agent",
-              "lastUpdatedAt": "2026-03-13T00:40:15.987112+00:00",
+              "lastUpdatedAt": "2026-03-15T14:14:50.772032+00:00",
               "status": "READY"
             },
             {
@@ -112,13 +112,13 @@
             "items": [
               {
                 "name": "DEFAULT",
-                "liveVersion": "4",
+                "liveVersion": "5",
                 "agentRuntimeEndpointArn": "arn:aws:bedrock-agentcore:us-east-2:135100771675:runtime/customer_support_agent-XDGSrz7NRI/runtime-endpoint/DEFAULT",
                 "agentRuntimeArn": "arn:aws:bedrock-agentcore:us-east-2:135100771675:runtime/customer_support_agent-XDGSrz7NRI",
                 "status": "READY",
                 "id": "DEFAULT",
                 "createdAt": "2026-03-11T02:25:22.921609+00:00",
-                "lastUpdatedAt": "2026-03-13T00:40:46.759505+00:00"
+                "lastUpdatedAt": "2026-03-15T14:15:21.710846+00:00"
               }
             ],
             "pages": 1
@@ -164,20 +164,20 @@
               "ok": true,
               "item": {
                 "ResponseMetadata": {
-                  "RequestId": "fd334049-186f-473a-becc-e65d0a1e4eba",
+                  "RequestId": "a9da688f-bf9a-455f-99c3-ff3ce9f0e21e",
                   "HTTPStatusCode": 200,
                   "HTTPHeaders": {
-                    "date": "Sun, 15 Mar 2026 13:51:17 GMT",
+                    "date": "Sun, 15 Mar 2026 17:01:39 GMT",
                     "content-type": "application/json",
                     "content-length": "1282",
                     "connection": "keep-alive",
-                    "x-amzn-requestid": "fd334049-186f-473a-becc-e65d0a1e4eba",
-                    "x-amzn-remapped-x-amzn-requestid": "fd334049-186f-473a-becc-e65d0a1e4eba",
+                    "x-amzn-requestid": "a9da688f-bf9a-455f-99c3-ff3ce9f0e21e",
+                    "x-amzn-remapped-x-amzn-requestid": "a9da688f-bf9a-455f-99c3-ff3ce9f0e21e",
                     "x-amzn-remapped-content-length": "1282",
                     "x-amzn-remapped-connection": "keep-alive",
-                    "x-amz-apigw-id": "aRHldGIqiYcEStA=",
-                    "x-amzn-trace-id": "Root=1-69b6b955-0f451b50179e62ad03dd9a25",
-                    "x-amzn-remapped-date": "Sun, 15 Mar 2026 13:51:17 GMT"
+                    "x-amz-apigw-id": "aRjeFEvRCYcEfbg=",
+                    "x-amzn-trace-id": "Root=1-69b6e5f3-502d274009ec095c0983770e",
+                    "x-amzn-remapped-date": "Sun, 15 Mar 2026 17:01:39 GMT"
                   },
                   "RetryAttempts": 0
                 },
