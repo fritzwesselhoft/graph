@@ -1,0 +1,160 @@
+{
+  "metadata": {
+    "source": "agentcore_inventory.json",
+    "generated_at": "2026-03-14T21:23:24.756049+00:00",
+    "regions": [
+      "us-east-2"
+    ]
+  },
+  "nodes": [
+    {
+      "id": "runtime:customer_support_agent",
+      "kind": "runtime",
+      "name": "customer_support_agent",
+      "region": "us-east-2",
+      "status": "READY"
+    },
+    {
+      "id": "runtime:HealthcareAppt",
+      "kind": "runtime",
+      "name": "HealthcareAppt",
+      "region": "us-east-2",
+      "status": "CREATE_FAILED"
+    },
+    {
+      "id": "gateway:customersupport-gw",
+      "kind": "gateway",
+      "name": "customersupport-gw",
+      "region": "us-east-2",
+      "status": "READY"
+    },
+    {
+      "id": "identity:HealthcareAppt-2K1Z4lCK10",
+      "kind": "identity",
+      "name": "HealthcareAppt-2K1Z4lCK10",
+      "region": "us-east-2",
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "identity:customersupport-gw-irxbzczbfi",
+      "kind": "identity",
+      "name": "customersupport-gw-irxbzczbfi",
+      "region": "us-east-2",
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "identity:customer_support_agent-XDGSrz7NRI",
+      "kind": "identity",
+      "name": "customer_support_agent-XDGSrz7NRI",
+      "region": "us-east-2",
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "policy_engine:customersupport_pe",
+      "kind": "policy_engine",
+      "name": "customersupport_pe",
+      "region": "us-east-2",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "endpoint:DEFAULT",
+      "kind": "endpoint",
+      "name": "DEFAULT",
+      "region": "us-east-2",
+      "status": "READY"
+    },
+    {
+      "id": "target:LambdaUsingSDK",
+      "kind": "target",
+      "name": "LambdaUsingSDK",
+      "region": "us-east-2",
+      "status": "READY"
+    },
+    {
+      "id": "policy:allow_policy",
+      "kind": "policy",
+      "name": "allow_policy",
+      "region": "us-east-2",
+      "status": "ACTIVE"
+    },
+    {
+      "id": "policy:deny_web_search",
+      "kind": "policy",
+      "name": "deny_web_search",
+      "region": "us-east-2",
+      "status": "ACTIVE"
+    }
+  ],
+  "edges": [
+    {
+      "from": "runtime:customer_support_agent-XDGSrz7NRI",
+      "to": "endpoint:DEFAULT",
+      "relationship": "has_endpoint",
+      "confidence": "confirmed",
+      "reason": "Listed under runtime_endpoints_by_runtime"
+    },
+    {
+      "from": "runtime:HealthcareAppt-2K1Z4lCK10",
+      "to": "endpoint:DEFAULT",
+      "relationship": "has_endpoint",
+      "confidence": "confirmed",
+      "reason": "Listed under runtime_endpoints_by_runtime"
+    },
+    {
+      "from": "gateway:customersupport-gw-irxbzczbfi",
+      "to": "target:LambdaUsingSDK",
+      "relationship": "has_target",
+      "confidence": "confirmed",
+      "reason": "Listed under gateway_targets_by_gateway"
+    },
+    {
+      "from": "policy_engine:customersupport_pe-5iw0xn29kt",
+      "to": "policy:allow_policy",
+      "relationship": "has_policy",
+      "confidence": "confirmed",
+      "reason": "Listed under policies_by_engine"
+    },
+    {
+      "from": "policy_engine:customersupport_pe-5iw0xn29kt",
+      "to": "policy:deny_web_search",
+      "relationship": "has_policy",
+      "confidence": "confirmed",
+      "reason": "Listed under policies_by_engine"
+    },
+    {
+      "from": "runtime:customer_support_agent",
+      "to": "gateway:customersupport-gw",
+      "relationship": "uses_gateway",
+      "confidence": "inferred",
+      "reason": "Names suggest same stack"
+    },
+    {
+      "from": "runtime:customer_support_agent",
+      "to": "identity:customer_support_agent-XDGSrz7NRI",
+      "relationship": "uses_identity",
+      "confidence": "inferred",
+      "reason": "Identity name matches runtime"
+    },
+    {
+      "from": "runtime:HealthcareAppt",
+      "to": "identity:HealthcareAppt-2K1Z4lCK10",
+      "relationship": "uses_identity",
+      "confidence": "inferred",
+      "reason": "Identity name matches runtime"
+    },
+    {
+      "from": "gateway:customersupport-gw",
+      "to": "identity:customersupport-gw-irxbzczbfi",
+      "relationship": "uses_identity",
+      "confidence": "inferred",
+      "reason": "Identity name matches gateway"
+    },
+    {
+      "from": "gateway:customersupport-gw",
+      "to": "policy_engine:customersupport_pe",
+      "relationship": "protected_by",
+      "confidence": "inferred",
+      "reason": "Names suggest same stack"
+    }
+  ]
+}
