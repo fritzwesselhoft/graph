@@ -72,4 +72,54 @@ Rendered diagram: agentcore_topology.png
 from CloudWatch / Transaction Search / Run query / Export File
 Sample is more robust and better normalized than wjat I got from CLI
 
-4.Add Otel Stuff
+filename: logs-insights-results.json
+
+5.Normalize insights span exported logs
+	• reads your logs-insights-results.json
+	• normalizes each record into one consistent span shape
+	• keeps the fields that matter for graph enrichment
+      writes normalized_spans.json
+
+Run:
+python normalize_logs_insights.py \
+  --input logs-insights-results.json \
+  --output normalized_spans.json
+Wrote normalized spans: normalized_spans.json
+Spans: 230
+Skipped: 0
+(.venv) fritzwesselhoft@fritzs-MBP SimpleMap_v3_otel % 
+
+Output file: normalized_spans.json
+
+6.Enrich Topology from spans - enrich_topology_from_spans.py
+*Read agentcore_topology.json and normalized_spans.json
+*Add observed edges
+
+Run:
+ python enrich_topology_from_spans.py \
+  --topology agentcore_topology.json \
+  --spans normalized_spans.json \
+  --output agentcore_topology_observed.json
+Wrote enriched topology: agentcore_topology_observed.json
+Nodes: 12
+Edges: 7
+Observed summary:
+{
+  "runtime_to_endpoint_edges": 0,
+  "endpoint_to_gateway_edges": 1,
+  "runtime_to_gateway_edges": 1
+}
+(.venv) fritzwesselhoft@fritzs-MBP SimpleMap_v3_otel % 
+
+Output: agentcore_topology_observed.json
+
+
+7.Rended observed topology
+
+(.venv) fritzwesselhoft@fritzs-MBP SimpleMap_v3_otel % python render_topology.py \
+  --input agentcore_topology_observed.json \
+  --output agentcore_topology_observed
+Rendered diagram: agentcore_topology_observed.png
+
+
+Note: Not pretty, but more accurate now with the edges details
