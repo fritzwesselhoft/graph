@@ -68,4 +68,8 @@ Rendered diagram: agentcore_topology.png
 (.venv) fritzwesselhoft@fritzs-MBP SimpleMap_v3_otel % 
 
 
+4.Traces
+from CloudWatch / Transaction Search / Run query / Export File
+Sample is more robust and better normalized than wjat I got from CLI
+
 4.Add Otel Stuff
